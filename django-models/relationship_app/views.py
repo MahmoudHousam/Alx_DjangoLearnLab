@@ -1,6 +1,9 @@
 from .models import Book  # Assuming you have a Book model
 from .forms import BookForm
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.shortcuts import render, redirect
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -18,12 +21,6 @@ class LibraryDetailView(DetailView):
     model = Library
     template_name = "relationship_app/library_detail.html"
     context_object_name = "library"
-
-
-from django.contrib.auth import views as auth_views
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
 
 
 # Login view
@@ -51,10 +48,6 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, "relationship_app/register.html", {"form": form})
-
-
-from django.contrib.auth.decorators import user_passes_test
-from django.shortcuts import render
 
 
 def is_admin(user):
@@ -85,8 +78,6 @@ def member_view(request):
 
 
 # relationship_app/views.py
-from django.contrib.auth.decorators import user_passes_test
-from django.shortcuts import render
 
 
 def is_admin(user):
