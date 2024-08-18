@@ -1,1 +1,2 @@
-/project_venv
+/.vscode
+/intro_to_django_env
