@@ -18,7 +18,7 @@ arabisk.save()
 Book.objects.get(author=ehsan)
 Book.objects.get(author=nageeb)
 Author.objects.get(name=author_name)
-Author.objects.filter(author=author_name)
+Author.objects.filter(author=author)
 
 # List all books
 Book.objects.all()
